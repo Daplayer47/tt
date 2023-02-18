@@ -1,0 +1,16 @@
+import ffmpeg
+import subprocess
+
+# Define input and output file paths
+input_file = '/path/to/input/file.mp4'
+output_file = '/path/to/output/file.mp4'
+
+# Define HEVC encoding settings
+hevc_settings = ['-c:v', 'libx265', '-preset', 'fast', '-x265-params', 'crf=28']
+
+# Use FFmpeg to compress the video using HEVC
+cmd = ['ffmpeg', '-i', input_file] + hevc_settings + [output_file]
+subprocess.run(cmd)
+
+# Output the compressed video file
+print(f"Video compressed using HEVC and saved to {output_file}")
